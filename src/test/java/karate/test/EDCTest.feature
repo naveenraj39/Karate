@@ -1,8 +1,12 @@
 
 
   Feature: Login to EDC
+  
+  Background: 
+  
+  * configure driver = { type: 'chrome', addOptions: ["--remote-allow-origins=*"] }
    
-  @smoke @login
+   @login
   Scenario: Login with valid credentials
     Given driver 'https://data.stag.triomics.in/login'
     * waitUntil("document.readyState == 'complete'")
@@ -12,8 +16,10 @@
     Then input('input[type=password]', 'Hello@123')
     And mouse('.MuiButton-label').click()
     * delay(5000)
+    
     @ignore
     Scenario: Site
+    #* call read('@login')
     * waitUntil("document.readyState == 'complete'")
     Then input("//*[@type='text']", "Dr. Alit EDC")
     * screenshot()
@@ -21,6 +27,7 @@
     * waitUntil("document.readyState == 'complete'")
     Then waitForEnabled("div[class='MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-justify-content-xs-center'] div:nth-child(1) div:nth-child(1) div:nth-child(3)").click()
     * waitUntil("document.readyState == 'complete'")
+    * delay(5000)
     * screenshot()
      # Study Build 
     And print driver.title

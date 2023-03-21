@@ -19,7 +19,7 @@ public class TestRunner {
 
 	    @Test
 	    public void testParallel() {
-	        Results results = Runner.path("classpath:karate/test/EDCTest.feature").tags("smoke")
+	        Results results = Runner.path("classpath:karate/test/Build.feature")
 	                .outputCucumberJson(true)
 	                .karateEnv("stag")
 	                .parallel(5);

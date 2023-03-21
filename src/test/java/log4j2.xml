@@ -1,0 +1,12 @@
+<Configuration>
+  <Appenders>
+    DEBUG
+  </Appenders>
+  <Loggers>
+    <Logger name="karate.io.netty" level="INFO" />
+    <!-- Add any other loggers here -->
+    <Root level="INFO">
+      <AppenderRef ref="YourAppender" />
+    </Root>
+  </Loggers>
+</Configuration>
